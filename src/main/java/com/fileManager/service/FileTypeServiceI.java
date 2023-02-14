@@ -9,8 +9,8 @@ public interface FileTypeServiceI {
 
 	public FileType getById(int id);
 	public List<FileType> getAll();
-	public FileType createFileType(FileTypeDTO dto);
-	public FileType updateFileType(int id, FileTypeDTO dto);
-	public FileType deleteFileType(int id);
+	public FileType create(FileTypeDTO dto);
+	public FileType update(FileTypeDTO dto);
+	public boolean delete(int id);
 	
 }

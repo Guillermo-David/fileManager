@@ -9,7 +9,7 @@ public interface FileServiceI {
 
 	public File getById(int id);
 	public List<File> getAll();
-	public File createFile(FileDTO dto);
-	public File updateFile(int id, FileDTO dto);
-	public File deleteFile(int id);
+	public File create(FileDTO dto);
+	public File update(FileDTO dto);
+	public boolean delete(int id);
 }

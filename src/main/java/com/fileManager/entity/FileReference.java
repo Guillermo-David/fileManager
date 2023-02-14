@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="fileReference")
+@Table(name="filereference")
 public class FileReference {
 
 	@Id
