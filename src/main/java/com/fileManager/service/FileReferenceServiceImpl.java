@@ -18,14 +18,12 @@ public class FileReferenceServiceImpl implements FileReferenceServiceI {
 	
 	@Override
 	public FileReference getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return fileReferenceRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public List<FileReference> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return fileReferenceRepository.findAll();
 	}
 
 	@Override
@@ -42,7 +40,7 @@ public class FileReferenceServiceImpl implements FileReferenceServiceI {
 	@Override
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
-		return true;
+		return false;
 	}
 
 }

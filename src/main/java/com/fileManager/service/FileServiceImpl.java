@@ -15,6 +15,7 @@ import com.fileManager.entity.FileReference;
 import com.fileManager.entity.FileType;
 import com.fileManager.entity.dto.FileDTO;
 import com.fileManager.entity.dto.FileReferenceDTO;
+import com.fileManager.enums.FileTypes;
 import com.fileManager.repository.FileReferenceRepository;
 import com.fileManager.repository.FileRepository;
 import com.fileManager.repository.FileTypeRepository;
@@ -50,10 +51,10 @@ public class FileServiceImpl implements FileServiceI {
 			MultipartFile multipart = dto.getFile();
 			
 			String dir = getClass().getClassLoader().getResource(".").getFile().replaceFirst("/", "") + LocalDate.now().toString().replace("-","");
-			String ext = "." + FilenameUtils.getExtension(multipart.getOriginalFilename());
+			String ext = FilenameUtils.getExtension(multipart.getOriginalFilename());
 			String fileName = Utils.generateName(32) + ext;
 			
-			java.io.File fileIO = new java.io.File(dir + "/" + fileName);
+			java.io.File fileIO = new java.io.File(dir + "/" + "." + fileName);
 			fileIO.mkdirs();
 			multipart.transferTo(fileIO);
 			
@@ -62,8 +63,9 @@ public class FileServiceImpl implements FileServiceI {
 			
 			FileType fileType = fileTypeRepository.findById(dto.getFileTypeId()).orElse(null);
 			if(fileType == null) {
-				
+				fileType = fileTypeRepository.findByName(FileTypes.valueOf(ext));
 			}
+			
 			File file = dto.parse();
 			file.setName(fileName);
 			file.setOriginalName(multipart.getOriginalFilename());

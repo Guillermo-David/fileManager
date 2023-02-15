@@ -3,12 +3,13 @@ package com.fileManager.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.fileManager.entity.FileReference;
 import com.fileManager.entity.dto.FileReferenceDTO;
 import com.fileManager.service.FileReferenceServiceImpl;
 
-
+@Controller
 public class FileReferenceController {
 
 	@Autowired

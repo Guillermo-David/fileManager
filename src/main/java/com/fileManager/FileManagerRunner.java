@@ -22,7 +22,7 @@ public class FileManagerRunner implements ApplicationRunner {
 	
 		if(fileTypeRepository.findAll().isEmpty()) {
 			List<FileType> fileTypes = new ArrayList<>();
-			String[] names = {"image", "pdf", "doc", "xls"};
+			String[] names = {"image", "pdf", "doc", "xls", "xml", "json", "miscellaneous"};
 			
 			for(String name : names) {
 				FileType fileType = new FileType();

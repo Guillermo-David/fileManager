@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fileManager.entity.FileType;
-import com.fileManager.entity.dto.FileTypeDTO;
 import com.fileManager.repository.FileTypeRepository;
 
 @Service
@@ -25,22 +24,4 @@ public class FileTypeServiceImpl implements FileTypeServiceI {
 	public List<FileType> getAll() {
 		return fileTypeRepository.findAll();
 	}
-
-	@Override
-	public FileType create(FileTypeDTO dto) {
-		return fileTypeRepository.save(dto.parse());
-	}
-
-	@Override
-	public FileType update(FileTypeDTO dto) {
-		FileType fileType = getById(dto.getId());
-		return fileType != null ? fileTypeRepository.save(fileType) : null;
-	}
-
-	@Override
-	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

@@ -7,5 +7,7 @@ import com.fileManager.entity.FileType;
 
 @Repository
 public interface FileTypeRepository extends JpaRepository<FileType, Integer>{
+
+	FileType findByName(String name);
 	
 }
