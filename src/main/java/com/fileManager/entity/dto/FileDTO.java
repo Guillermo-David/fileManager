@@ -1,6 +1,7 @@
 package com.fileManager.entity.dto;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 
@@ -8,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fileManager.entity.File;
 import com.fileManager.entity.FileReference;
+import com.fileManager.entity.FileType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,19 +25,31 @@ public class FileDTO implements Serializable {
 	private Integer id;
 	private String name;
 	private String originalName;
+	private String filePath;
+	private String notes;
 	private Long size;
+	private boolean isDefault;
+	private LocalDateTime dateCreation;
 	private FileReference fileReference;
+	private FileType fileType;
+	private int fileReferenceId;
+	private int fileTypeId;
 	
-	private MultipartFile multipart;
+	private MultipartFile file;
 	
 	
 	//OUT
 	public FileDTO(@NotNull File file) {
-		setId(id);
-		setName(name);
-		setOriginalName(originalName);
-		setSize(size);
-		setFileReference(fileReference);
+		setId(file.getId());
+		setName(file.getName());
+		setOriginalName(file.getOriginalName());
+		setFilePath(file.getFilePath());
+		setNotes(file.getNotes());
+		setSize(file.getSize());
+		setDefault(file.isDefault());
+		setDateCreation(file.getDateCreation());
+		setFileReferenceId(file.getFileReference().getId());
+		setFileTypeId(file.getFileType().getId());
 	}
 	
 	//IN
@@ -43,8 +57,13 @@ public class FileDTO implements Serializable {
 		file.setId(id);
 		file.setName(name);
 		file.setOriginalName(originalName);
+		file.setFilePath(filePath);
+		file.setNotes(notes);
 		file.setSize(size);
+		file.setDateCreation(dateCreation);
+		file.setDefault(isDefault);
 		file.setFileReference(fileReference);
+		file.setFileType(fileType);
 		
 		return file;
 	}

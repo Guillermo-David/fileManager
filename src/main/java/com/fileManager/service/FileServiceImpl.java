@@ -1,43 +1,109 @@
 package com.fileManager.service;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fileManager.entity.File;
+import com.fileManager.entity.FileReference;
+import com.fileManager.entity.FileType;
 import com.fileManager.entity.dto.FileDTO;
+import com.fileManager.entity.dto.FileReferenceDTO;
+import com.fileManager.repository.FileReferenceRepository;
+import com.fileManager.repository.FileRepository;
+import com.fileManager.repository.FileTypeRepository;
+import com.fileManager.utils.Utils;
 
 @Service
 public class FileServiceImpl implements FileServiceI {
 
+	@Autowired
+	private FileRepository fileRepository;
+	@Autowired
+	private FileReferenceRepository fileReferenceRepository;
+	@Autowired
+	private FileTypeRepository fileTypeRepository;
+	@Autowired
+	private FileReferenceServiceImpl fileReferenceService;
+	
+	
 	@Override
 	public File getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return fileRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public List<File> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return fileRepository.findAll();
 	}
 
 	@Override
 	public File create(FileDTO dto) {
-		// TODO Auto-generated method stub
+		
+		try {
+			MultipartFile multipart = dto.getFile();
+			
+			String dir = getClass().getClassLoader().getResource(".").getFile().replaceFirst("/", "") + LocalDate.now().toString().replace("-","");
+			String ext = "." + FilenameUtils.getExtension(multipart.getOriginalFilename());
+			String fileName = Utils.generateName(32) + ext;
+			
+			java.io.File fileIO = new java.io.File(dir + "/" + fileName);
+			fileIO.mkdirs();
+			multipart.transferTo(fileIO);
+			
+			FileReference fileReference = fileReferenceRepository.findById(dto.getFileReferenceId()).orElse(null);
+			if(fileReference == null) fileReference = fileReferenceService.create(new FileReferenceDTO());
+			
+			FileType fileType = fileTypeRepository.findById(dto.getFileTypeId()).orElse(null);
+			if(fileType == null) {
+				
+			}
+			File file = dto.parse();
+			file.setName(fileName);
+			file.setOriginalName(multipart.getOriginalFilename());
+			file.setFilePath(dir);
+			file.setFileReference(fileReference);
+			file.setFileType(fileType);
+			file.setDefault(dto.isDefault());
+			file.setSize(multipart.getSize());
+			file.setDateCreation(LocalDateTime.now());
+			
+			return fileRepository.save(file);
+			
+		} catch (IllegalStateException e) {
+			System.out.println("1");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("2");
+			e.printStackTrace();
+		}
+		
 		return null;
+		
 	}
 
 	@Override
 	public File update(FileDTO dto) {
-		// TODO Auto-generated method stub
-		return null;
+		File file = dto.parse(getById(dto.getId()));
+		return file != null ? fileRepository.save(file) : null;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return true;
+		File file = getById(id);
+		if(file != null) {
+			java.io.File fileIO = new java.io.File(file.getFilePath() + "/" + file.getName());
+			if(fileIO != null) fileIO.delete();
+			fileRepository.delete(file);
+			return true;
+		} else
+			return false;
 	}
 
 }

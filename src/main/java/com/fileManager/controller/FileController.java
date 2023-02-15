@@ -3,13 +3,19 @@ package com.fileManager.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.fileManager.entity.File;
 import com.fileManager.entity.dto.FileDTO;
 import com.fileManager.service.FileServiceImpl;
 
-@Controller
+@RestController
+@RequestMapping("/file")
 public class FileController {
 
 	@Autowired
@@ -25,7 +31,8 @@ public class FileController {
 	}
 	
 	
-	public File create(FileDTO dto) {
+	@PostMapping("")
+	public File create(@ModelAttribute FileDTO dto) {
 		
 		return fileService.create(dto);
 	}
@@ -37,7 +44,8 @@ public class FileController {
 	}
 	
 	
-	public boolean delete(int id) {
+	@DeleteMapping("/{id}")
+	public boolean delete(@PathVariable int id) {
 		return fileService.delete(id);
 	}
 }

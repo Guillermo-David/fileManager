@@ -17,9 +17,9 @@ public class FileType {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@NotNull
-	@Column(name="name", nullable = false, length = 32)
+	@Column(name="name", nullable = false, length = 32, unique = true)
 	private String name;
 }

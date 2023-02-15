@@ -18,7 +18,7 @@ public class FileReference {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	@OneToMany(mappedBy = "fileReference")
 	private List<File> fileList = new ArrayList<>();	
