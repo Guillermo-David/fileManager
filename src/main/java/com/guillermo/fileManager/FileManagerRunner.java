@@ -1,4 +1,4 @@
-package com.fileManager;
+package com.guillermo.fileManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.fileManager.entity.FileType;
-import com.fileManager.repository.FileTypeRepository;
+import com.guillermo.fileManager.entity.FileType;
+import com.guillermo.fileManager.repository.FileTypeRepository;
 
 @Component
 public class FileManagerRunner implements ApplicationRunner {

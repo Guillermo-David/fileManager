@@ -1,4 +1,4 @@
-package com.fileManager.enums;
+package com.guillermo.fileManager.enums;
 
 public class FileTypes {
 
@@ -15,13 +15,21 @@ public class FileTypes {
 	
 	public static String valueOf(String input) {
 		switch(input.toLowerCase()) {
-			case "image", "img", "jpg", "bmp", "png", "jpeg": 
+			case "image":
+			case "img":
+			case "jpg":
+			case "bmp":
+			case "png":
+			case "jpeg": 
 				return IMG;
-			case "doc", "docx":
+			case "doc":
+			case"docx":
 				return DOC;
 			case "pdf":
 				return PDF;
-			case "xls", "xlsm", "csv":
+			case "xls":
+			case "xlsm":
+			case "csv":
 				return XLS;
 			case "xml":
 				return XML;

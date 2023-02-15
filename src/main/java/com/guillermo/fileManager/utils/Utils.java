@@ -1,4 +1,4 @@
-package com.fileManager.utils;
+package com.guillermo.fileManager.utils;
 
 import java.security.SecureRandom;
 

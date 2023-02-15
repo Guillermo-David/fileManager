@@ -1,4 +1,4 @@
-package com.fileManager.entity;
+package com.guillermo.fileManager.entity;
 
 import java.time.LocalDateTime;
 

@@ -1,19 +1,17 @@
-package com.fileManager.controller;
+package com.guillermo.fileManager.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.fileManager.entity.File;
-import com.fileManager.entity.dto.FileDTO;
-import com.fileManager.service.FileServiceImpl;
+import com.guillermo.fileManager.entity.File;
+import com.guillermo.fileManager.entity.dto.FileDTO;
+import com.guillermo.fileManager.service.FileServiceImpl;
 
 @Controller
 public class FileController {
 
-	@Autowired
-	private FileServiceImpl fileService;
+	private FileServiceImpl fileService = new FileServiceImpl();
 	
 	public File getById(int id) {
 		return fileService.getById(id);

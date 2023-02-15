@@ -1,13 +1,13 @@
-package com.fileManager.service;
+package com.guillermo.fileManager.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fileManager.entity.FileReference;
-import com.fileManager.entity.dto.FileReferenceDTO;
-import com.fileManager.repository.FileReferenceRepository;
+import com.guillermo.fileManager.entity.FileReference;
+import com.guillermo.fileManager.entity.dto.FileReferenceDTO;
+import com.guillermo.fileManager.repository.FileReferenceRepository;
 
 @Service
 public class FileReferenceServiceImpl implements FileReferenceServiceI {

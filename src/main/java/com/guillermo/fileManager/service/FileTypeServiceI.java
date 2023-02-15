@@ -1,8 +1,8 @@
-package com.fileManager.service;
+package com.guillermo.fileManager.service;
 
 import java.util.List;
 
-import com.fileManager.entity.FileType;
+import com.guillermo.fileManager.entity.FileType;
 
 public interface FileTypeServiceI {
 

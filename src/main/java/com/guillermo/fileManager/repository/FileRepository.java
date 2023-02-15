@@ -1,12 +1,12 @@
-package com.fileManager.repository;
+package com.guillermo.fileManager.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fileManager.entity.File;
-import com.fileManager.entity.FileReference;
+import com.guillermo.fileManager.entity.File;
+import com.guillermo.fileManager.entity.FileReference;
 
 @Repository
 public interface FileRepository extends JpaRepository<File, Integer>{

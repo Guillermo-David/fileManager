@@ -1,4 +1,4 @@
-package com.fileManager.entity.dto;
+package com.guillermo.fileManager.entity.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -7,9 +7,9 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fileManager.entity.File;
-import com.fileManager.entity.FileReference;
-import com.fileManager.entity.FileType;
+import com.guillermo.fileManager.entity.File;
+import com.guillermo.fileManager.entity.FileReference;
+import com.guillermo.fileManager.entity.FileType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

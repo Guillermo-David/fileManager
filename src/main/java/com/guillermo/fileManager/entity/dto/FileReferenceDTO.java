@@ -1,10 +1,10 @@
-package com.fileManager.entity.dto;
+package com.guillermo.fileManager.entity.dto;
 
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-import com.fileManager.entity.FileReference;
+import com.guillermo.fileManager.entity.FileReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
