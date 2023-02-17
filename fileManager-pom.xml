@@ -2,9 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<!-- 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.0.2</version>
+		<relativePath/>
+	</parent>
+	 -->
 	<groupId>com.guillermo.fileManager</groupId>
 	<artifactId>FileManager</artifactId>
-	<version>${revision}</version>
+	<version>0.0.1</version>
 	<name>FileManager</name>
 	<description>FileManager</description>
 	<packaging>jar</packaging>
@@ -60,6 +68,11 @@
 		    <artifactId>commons-io</artifactId>
 		    <version>2.11.0</version>
 		</dependency>
+		<dependency>
+		    <groupId>com.guillermo.fileManager</groupId>
+		    <artifactId>FileManager</artifactId>
+		    <version>0.0.1</version>
+		</dependency>
 				
 	</dependencies>
 
@@ -84,22 +97,6 @@
 				</configuration>
 			</plugin>
 		 -->
-			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <!-- 
-                <executions>
-                	<execution>
-	                	<goals>
-	                		<goal>test-jar</goal>
-	                	</goals>
-                	</execution>
-                </executions>
-                 -->
-                <configuration>
-                	<finalName>projectJARs/fileManager</finalName>
-                </configuration>
-            </plugin>
 		</plugins>
 	</build>
 

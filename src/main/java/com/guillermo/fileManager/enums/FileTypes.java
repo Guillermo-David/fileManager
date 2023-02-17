@@ -23,7 +23,7 @@ public class FileTypes {
 			case "jpeg": 
 				return IMG;
 			case "doc":
-			case"docx":
+			case "docx":
 				return DOC;
 			case "pdf":
 				return PDF;
