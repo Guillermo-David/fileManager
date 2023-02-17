@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.guillermo.fileManager</groupId>
 	<artifactId>FileManager</artifactId>
-	<version>${revision}</version>
+	<version>1.0.0</version>
 	<name>FileManager</name>
 	<description>FileManager</description>
 	<packaging>jar</packaging>

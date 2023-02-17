@@ -1,27 +1,27 @@
-spring:
-  jpa:
-    hibernate:
-      hikari:
-        minimumIdle: '5'
-        maximumPoolSize: '10'
-        idleTimeout: '30000'
-      naming:
-        strategy: org.hibernate.cfg.ImprovedNamingStrategy
-      ddl-auto: update
-      connection:
-        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
-    show-sql: 'false'
-    database-platform: org.hibernate.dialect.MySQLDialect
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    password: ''
-    username: root
-    url: jdbc:mysql://localhost/filemanager?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-file:
-  location: /files
-server:
-  port: '8080'
+#spring:
+#  jpa:
+#    hibernate:
+#      hikari:
+#        minimumIdle: '5'
+#        maximumPoolSize: '10'
+#        idleTimeout: '30000'
+#      naming:
+#        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+#      ddl-auto: update
+#      connection:
+#        provider_class: org.hibernate.hikaricp.internal.HikariCPConnectionProvider
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
+#    show-sql: 'false'
+#    database-platform: org.hibernate.dialect.MySQLDialect
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    password: ''
+#    username: root
+#    url: jdbc:mysql://localhost/filemanager?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+#file:
+#  location: /files
+#server:
+#  port: '8080'
 
